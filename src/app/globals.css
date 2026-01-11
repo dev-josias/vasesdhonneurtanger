@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette Design basée sur l'affiche */
+  /* Vert Forêt (Dominante) */
+  --color-primary: #184236;
+  --color-primary-light: #255948;
+
+  /* Jaune Moutarde / Or Mat (Accent) */
+  --color-gold: #dbc05e;
+  --color-gold-dark: #c9a648;
+
+  /* Blanc Pur */
+  --color-white: #ffffff;
+
+  /* Bleu Nuit / Pétrole (Secondaire) */
+  --color-navy: #1e3a5f;
+  --color-navy-dark: #0f1f35;
+
+  /* Neutres pour le texte */
+  --color-cream: #fafafa;
+  --color-gray-light: #e8e6e1;
+  --color-gray: #9ca3af;
+  --color-gray-dark: #4b5563;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fafafa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dbc05e;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c9a648;
+}
+
+/* Focus visible pour accessibilité */
+*:focus-visible {
+  outline: 2px solid #dbc05e;
+  outline-offset: 2px;
+}
