@@ -51,11 +51,9 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-                Prochains événements
+                {t("upcomingEvents")}
               </h2>
-              <p className="text-xl text-gray-600">
-                Rejoignez-nous pour vivre des moments forts ensemble
-              </p>
+              <p className="text-xl text-gray-600">{t("upcomingEventsDesc")}</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -66,14 +64,12 @@ export default function Home() {
                     M
                   </div>
                   <div>
-                    <p className="text-sm text-gray-300">Mardi</p>
-                    <p className="font-semibold">Mardi de Prière</p>
+                    <p className="text-sm text-gray-300">{t("tuesday")}</p>
+                    <p className="font-semibold">{t("prayerTuesday")}</p>
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-2">Restauration</h3>
-                <p className="text-gray-300 mb-4">
-                  Temps de prière et de communion
-                </p>
+                <h3 className="text-2xl font-bold mb-2">{t("restoration")}</h3>
+                <p className="text-gray-300 mb-4">{t("prayerTime")}</p>
                 <div className="flex items-center gap-2 text-[#DBC05E] font-semibold">
                   <svg
                     className="w-5 h-5"
@@ -90,7 +86,7 @@ export default function Home() {
                   </svg>
                   <span>21:00 - 22:00</span>
                 </div>
-                <p className="text-sm text-gray-400 mt-2">Avec le GEM Tanger</p>
+                <p className="text-sm text-gray-400 mt-2">{t("withGEM")}</p>
               </div>
 
               {/* Événement 2 */}
@@ -100,14 +96,14 @@ export default function Home() {
                     D
                   </div>
                   <div>
-                    <p className="text-sm text-white/80">Dimanche</p>
-                    <p className="font-semibold">Culte Dominical</p>
+                    <p className="text-sm text-white/80">{t("sunday")}</p>
+                    <p className="font-semibold">{t("sundayService")}</p>
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-2">Adoration & Parole</h3>
-                <p className="text-white/90 mb-4">
-                  Culte principal de la semaine
-                </p>
+                <h3 className="text-2xl font-bold mb-2">
+                  {t("adorationWord")}
+                </h3>
+                <p className="text-white/90 mb-4">{t("mainService")}</p>
                 <div className="flex items-center gap-2 text-white font-semibold">
                   <svg
                     className="w-5 h-5"
@@ -125,14 +121,14 @@ export default function Home() {
                   <span>11:00 - 13:00</span>
                 </div>
                 <p className="text-sm text-white/80 mt-2">
-                  Suivi d&apos;un temps de communion
+                  {t("followedByCommunion")}
                 </p>
               </div>
             </div>
 
             <div className="text-center mt-12">
               <CTAButton href="/evenements" variant="primary">
-                Voir tous les événements
+                {t("viewAllEvents")}
               </CTAButton>
             </div>
           </div>
@@ -152,19 +148,19 @@ export default function Home() {
               <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-20 h-20 bg-linear-to-br from-[#DBC05E] to-[#C9A648] rounded-full flex items-center justify-center text-2xl font-bold text-primary">
-                    K
+                    G
                   </div>
                   <div>
                     <p className="font-semibold text-primary text-xl">
-                      {t("kingName")}
+                      {t("gaspardName")}
                     </p>
                     <p className="text-sm text-gray-500">
-                      {t("memberSince")} 2023
+                      {t("memberSince")} 2022
                     </p>
                   </div>
                 </div>
                 <p className="text-gray-700 text-lg leading-relaxed italic">
-                  &quot;{t("kingTestimonial")}&quot;
+                  &quot;{t("gaspardTestimonial")}&quot;
                 </p>
               </div>
             </div>
@@ -176,12 +172,10 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Nouveaux visiteurs
+                {t("newVisitors")}
               </h2>
               <p className="text-xl text-gray-300 mb-8">
-                Vous êtes le bienvenu ! Venez comme vous êtes. Nous sommes une
-                communauté accueillante qui croit en la puissance de
-                l&apos;amour de Christ pour transformer des vies.
+                {t("newVisitorsDesc")}
               </p>
 
               <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -202,10 +196,10 @@ export default function Home() {
                     </svg>
                   </div>
                   <h3 className="font-semibold mb-2">
-                    Communauté accueillante
+                    {t("welcomingCommunity")}
                   </h3>
                   <p className="text-sm text-gray-300">
-                    Un environnement chaleureux où chacun trouve sa place
+                    {t("welcomingCommunityDesc")}
                   </p>
                 </div>
 
@@ -225,9 +219,11 @@ export default function Home() {
                       />
                     </svg>
                   </div>
-                  <h3 className="font-semibold mb-2">Enseignement biblique</h3>
+                  <h3 className="font-semibold mb-2">
+                    {t("biblicalTeaching")}
+                  </h3>
                   <p className="text-sm text-gray-300">
-                    Des prédications qui transforment et inspirent
+                    {t("biblicalTeachingDesc")}
                   </p>
                 </div>
 
@@ -247,19 +243,21 @@ export default function Home() {
                       />
                     </svg>
                   </div>
-                  <h3 className="font-semibold mb-2">Amour inconditionnel</h3>
+                  <h3 className="font-semibold mb-2">
+                    {t("unconditionalLove")}
+                  </h3>
                   <p className="text-sm text-gray-300">
-                    Venez comme vous êtes, vous serez accepté
+                    {t("unconditionalLoveDesc")}
                   </p>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <CTAButton href="/contact?guide=nouveau-venu" variant="primary">
-                  Recevoir le guide du nouveau venu
+                  {t("receiveGuide")}
                 </CTAButton>
                 <CTAButton href="/a-propos" variant="secondary">
-                  En savoir plus
+                  {t("learnMore")}
                 </CTAButton>
               </div>
             </div>
@@ -271,11 +269,10 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-                Nos assemblées au Maroc
+                {t("ourAssemblies")}
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Vous êtes de passage à Rabat ou Casablanca ? Retrouvez nos
-                autres assemblées Vases d&apos;Honneur dans ces villes.
+                {t("ourAssembliesDesc")}
               </p>
             </div>
 
@@ -285,13 +282,10 @@ export default function Home() {
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex-1">
                     <h3 className="text-3xl font-bold mb-2">
-                      Assemblée Royauté Divine
+                      {t("royalAssembly")}
                     </h3>
-                    <p className="text-gray-300 mb-4">Rabat</p>
-                    <p className="text-white/90">
-                      Rejoignez notre assemblée à Rabat pour vivre des moments
-                      forts de communion et d&apos;adoration.
-                    </p>
+                    <p className="text-gray-300 mb-4">{t("rabat")}</p>
+                    <p className="text-white/90">{t("royalAssemblyDesc")}</p>
                   </div>
                   <div className="w-16 h-16 bg-[#DBC05E] rounded-xl flex items-center justify-center text-2xl font-bold text-primary ml-4 shrink-0">
                     R
@@ -317,7 +311,7 @@ export default function Home() {
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
-                  <span>Rabat, Maroc</span>
+                  <span>{t("rabatMorocco")}</span>
                 </div>
                 <a
                   href="https://web.facebook.com/EgliseVasesdhonneurRabatAssembleeRoyauteeDivine"
@@ -325,7 +319,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="mt-6 inline-block w-full px-6 py-3 bg-[#DBC05E] text-primary rounded-xl font-semibold text-center hover:bg-[#C9A648] transition-all"
                 >
-                  Découvrir l&apos;assemblée
+                  {t("discoverAssembly")}
                 </a>
               </div>
 
@@ -334,13 +328,10 @@ export default function Home() {
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex-1">
                     <h3 className="text-3xl font-bold mb-2">
-                      Assemblée Force Divine
+                      {t("forceAssembly")}
                     </h3>
-                    <p className="text-gray-300 mb-4">Casablanca</p>
-                    <p className="text-white/90">
-                      Connectez-vous avec notre assemblée à Casablanca pour
-                      grandir dans la foi ensemble.
-                    </p>
+                    <p className="text-gray-300 mb-4">{t("casablanca")}</p>
+                    <p className="text-white/90">{t("forceAssemblyDesc")}</p>
                   </div>
                   <div className="w-16 h-16 bg-[#DBC05E] rounded-xl flex items-center justify-center text-2xl font-bold text-white ml-4 shrink-0">
                     C
@@ -366,7 +357,7 @@ export default function Home() {
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
-                  <span>Casablanca, Maroc</span>
+                  <span>{t("casablancaMorocco")}</span>
                 </div>
                 <div className="mt-6 flex gap-3">
                   <a
@@ -375,7 +366,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="flex-1 px-6 py-3 bg-[#DBC05E] text-white rounded-xl font-semibold text-center hover:bg-[#C9A648] transition-all"
                   >
-                    Découvrir l&apos;assemblée
+                    {t("discoverAssembly")}
                   </a>
                 </div>
               </div>
@@ -389,45 +380,43 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-linear-to-br from-[#ff6b6b] to-[#ff8e8e] text-white rounded-2xl p-8 text-center">
                 <h3 className="text-2xl font-bold mb-4">
-                  Je veux donner ma vie à Christ
+                  {t("giveLifeToChrist")}
                 </h3>
                 <p className="mb-6 text-white/90">
-                  Découvrez comment commencer votre relation avec Jésus
+                  {t("giveLifeToChristDesc")}
                 </p>
                 <CTAButton
                   href="/contact?action=donner-vie"
                   variant="secondary"
                   className="bg-white text-[#ff6b6b] hover:bg-gray-100"
                 >
-                  En savoir plus
+                  {t("learnMore")}
                 </CTAButton>
               </div>
 
               <div className="bg-linear-to-br from-[#4ecdc4] to-[#6eddd6] text-white rounded-2xl p-8 text-center">
-                <h3 className="text-2xl font-bold mb-4">Recevoir une prière</h3>
-                <p className="mb-6 text-white/90">
-                  Nous prions pour vous et vos besoins
-                </p>
+                <h3 className="text-2xl font-bold mb-4">
+                  {t("receivePrayer")}
+                </h3>
+                <p className="mb-6 text-white/90">{t("receivePrayerDesc")}</p>
                 <CTAButton
                   href="/contact?action=priere"
                   variant="secondary"
                   className="bg-white text-[#4ecdc4] hover:bg-gray-100"
                 >
-                  Demander une prière
+                  {t("requestPrayer")}
                 </CTAButton>
               </div>
 
               <div className="bg-linear-to-br from-[#DBC05E] to-[#C9A648] text-white rounded-2xl p-8 text-center">
-                <h3 className="text-2xl font-bold mb-4">Rejoindre un groupe</h3>
-                <p className="mb-6 text-white/90">
-                  Connectez-vous avec d&apos;autres croyants
-                </p>
+                <h3 className="text-2xl font-bold mb-4">{t("joinGroup")}</h3>
+                <p className="mb-6 text-white/90">{t("joinGroupDesc")}</p>
                 <CTAButton
                   href="/contact?action=groupe"
                   variant="secondary"
                   className="bg-white text-[#DBC05E] hover:bg-gray-100"
                 >
-                  Trouver un groupe
+                  {t("findGroup")}
                 </CTAButton>
               </div>
             </div>
