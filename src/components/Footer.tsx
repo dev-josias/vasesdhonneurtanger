@@ -1,17 +1,22 @@
-import Link from "next/link";
+"use client";
+
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+  const tCommon = useTranslations("common");
+  const tNav = useTranslations("nav");
+
   return (
-    <footer className="bg-[#184236] text-white">
+    <footer className="bg-primary text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold bg-linear-to-r from-[#DBC05E] to-[#C9A648] bg-clip-text text-transparent mb-4">
-              Vases d&apos;Honneur Tanger
+              {tCommon("siteName")}
             </h3>
-            <p className="text-gray-300 mb-4">
-              Partager l&apos;amour de Christ pour changer le monde
-            </p>
+            <p className="text-gray-300 mb-4">{tCommon("slogan")}</p>
             <div className="flex space-x-4">
               <a
                 href="https://web.facebook.com/EgliseVasesdhonneurRabatAssembleeRoyauteeDivine"
@@ -47,14 +52,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Navigation</h4>
+            <h4 className="font-semibold mb-4">{t("navigation")}</h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Accueil
+                  {tNav("home")}
                 </Link>
               </li>
               <li>
@@ -62,7 +67,7 @@ export default function Footer() {
                   href="/a-propos"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  À propos
+                  {tNav("about")}
                 </Link>
               </li>
               <li>
@@ -70,7 +75,7 @@ export default function Footer() {
                   href="/evenements"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Événements
+                  {tNav("events")}
                 </Link>
               </li>
               <li>
@@ -78,16 +83,24 @@ export default function Footer() {
                   href="/predications"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Prédications
+                  {tNav("sermons")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/galerie"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  {tNav("gallery")}
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Contact</h4>
+            <h4 className="font-semibold mb-4">{t("contact")}</h4>
             <ul className="space-y-2 text-gray-400">
-              <li>Tanger, Maroc</li>
+              <li>{tCommon("location")}</li>
               <li>
                 <a
                   href="mailto:hello@vasesdhonneurtanger.org"
@@ -101,7 +114,7 @@ export default function Footer() {
                   href="https://wa.me/212776987755"
                   className="hover:text-white transition-colors"
                 >
-                  WhatsApp
+                  {tCommon("phone")}
                 </a>
               </li>
             </ul>
@@ -110,21 +123,21 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
           <p>
-            &copy; {new Date().getFullYear()} Vases d&apos;Honneur Tanger. Tous
-            droits réservés.
+            &copy; {new Date().getFullYear()} {tCommon("siteName")}.{" "}
+            {t("rights")}.
           </p>
           <div className="mt-2 space-x-4">
             <Link
               href="/politique-confidentialite"
               className="hover:text-white transition-colors"
             >
-              Politique de confidentialité
+              {t("privacy")}
             </Link>
             <Link
               href="/mentions-legales"
               className="hover:text-white transition-colors"
             >
-              Mentions légales
+              {t("legal")}
             </Link>
           </div>
         </div>

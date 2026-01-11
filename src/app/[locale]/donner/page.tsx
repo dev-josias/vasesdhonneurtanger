@@ -11,7 +11,7 @@ export default function Donner() {
       <Header />
       <main className="pt-16">
         {/* Hero */}
-        <section className="bg-linear-to-br from-[#184236] to-[#255948] text-white py-20">
+        <section className="bg-linear-to-br from-primary to-[#255948] text-white py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-4">Donner</h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -48,7 +48,7 @@ export default function Donner() {
 
               <div className="grid md:grid-cols-2 gap-6 mb-8">
                 <div className="bg-[#faf9f6] rounded-2xl p-6 border-2 border-[#DBC05E]/20">
-                  <h3 className="text-2xl font-bold text-[#184236] mb-4">
+                  <h3 className="text-2xl font-bold text-primary mb-4">
                     Campagne Jésus Sauve
                   </h3>
                   <p className="text-gray-700 mb-4">
@@ -80,7 +80,7 @@ export default function Donner() {
                 </div>
 
                 <div className="bg-[#faf9f6] rounded-2xl p-6 border-2 border-[#4ecdc4]/20">
-                  <h3 className="text-2xl font-bold text-[#184236] mb-4">
+                  <h3 className="text-2xl font-bold text-primary mb-4">
                     Campagne IN du Pasteur Mohammed Sanogo
                   </h3>
                   <p className="text-gray-700 mb-4">
@@ -118,7 +118,7 @@ export default function Donner() {
         <section className="py-20 bg-[#faf9f6]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#184236] mb-6 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 text-center">
                 Faire un don pour Vases d&apos;Honneur Tanger
               </h2>
               <p className="text-lg text-gray-700 mb-8 text-center">
@@ -126,7 +126,7 @@ export default function Donner() {
                 directement par téléphone.
               </p>
 
-              <div className="bg-linear-to-br from-[#184236] to-[#255948] rounded-2xl p-8 text-center">
+              <div className="bg-linear-to-br from-primary to-[#255948] rounded-2xl p-8 text-center">
                 <div className="flex items-center justify-center gap-4 mb-6">
                   <div className="w-16 h-16 bg-[#DBC05E] rounded-full flex items-center justify-center">
                     <svg
@@ -164,7 +164,7 @@ export default function Donner() {
         {/* Lien vers Messages de Vie */}
         <section className="py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-[#184236] mb-6">
+            <h2 className="text-3xl font-bold text-primary mb-6">
               Pour les dons internationaux
             </h2>
             <p className="text-lg text-gray-700 mb-8">

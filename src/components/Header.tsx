@@ -1,7 +1,14 @@
-import Link from "next/link";
+"use client";
+
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
+import { useTranslations, useLocale } from "next-intl";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
+  const t = useTranslations("nav");
+  const locale = useLocale();
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,38 +32,45 @@ export default function Header() {
               href="/"
               className="text-gray-700 hover:text-[#DBC05E] transition-colors font-medium"
             >
-              Accueil
+              {t("home")}
             </Link>
             <Link
               href="/a-propos"
               className="text-gray-700 hover:text-[#DBC05E] transition-colors font-medium"
             >
-              À propos
+              {t("about")}
             </Link>
             <Link
               href="/evenements"
               className="text-gray-700 hover:text-[#DBC05E] transition-colors font-medium"
             >
-              Événements
+              {t("events")}
             </Link>
             <Link
               href="/predications"
               className="text-gray-700 hover:text-[#DBC05E] transition-colors font-medium"
             >
-              Prédications
+              {t("sermons")}
+            </Link>
+            <Link
+              href="/galerie"
+              className="text-gray-700 hover:text-[#DBC05E] transition-colors font-medium"
+            >
+              {t("gallery")}
             </Link>
             <Link
               href="/contact"
               className="text-gray-700 hover:text-[#DBC05E] transition-colors font-medium"
             >
-              Contact
+              {t("contact")}
             </Link>
             <Link
               href="/donner"
               className="px-4 py-2 bg-linear-to-r from-[#DBC05E] to-[#C9A648] text-white rounded-full font-semibold hover:shadow-lg transition-all"
             >
-              Donner
+              {t("give")}
             </Link>
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile menu button */}

@@ -23,6 +23,10 @@ export const metadata: Metadata = {
   keywords:
     "église évangélique Tanger, culte en ligne, communauté chrétienne Tanger, église Tanger, Vases d'Honneur",
   authors: [{ name: "Vases d'Honneur Tanger" }],
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     title: "Vases d'Honneur Tanger | Église Évangélique",
     description: "Partager l'amour de Christ pour changer le monde",

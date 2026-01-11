@@ -73,6 +73,9 @@ src/
 # Installer les dépendances
 yarn install
 
+# Installer next-intl pour le support multilingue
+yarn add next-intl
+
 # Lancer le serveur de développement
 yarn dev
 
@@ -82,6 +85,48 @@ yarn build
 # Démarrer en production
 yarn start
 ```
+
+## 🌍 Support multilingue
+
+Le site supporte 3 langues :
+
+- **Français (fr)** - Langue par défaut
+- **English (en)**
+- **Español (es)**
+
+La langue est détectée automatiquement selon les préférences du navigateur. Les utilisateurs peuvent également changer de langue via le sélecteur dans le header.
+
+Les traductions sont stockées dans `src/messages/` :
+
+- `fr.json` - Français
+- `en.json` - English
+- `es.json` - Español
+
+**Note** : Si vous voyez un avertissement concernant le middleware dans Next.js 16, c'est normal. `next-intl` utilise encore la convention middleware qui est la méthode officielle et fonctionne correctement. Cet avertissement peut être ignoré en toute sécurité.
+
+## 📧 Configuration de l'envoi d'emails
+
+Le formulaire de contact utilise Resend pour envoyer les emails.
+
+### Configuration Resend
+
+1. Installer Resend :
+
+```bash
+yarn add resend
+```
+
+2. Créer un compte sur [resend.com](https://resend.com) et obtenir une clé API
+
+3. Créer un fichier `.env.local` à la racine :
+
+```env
+RESEND_API_KEY=re_xxxxxxxxxxxxx
+RESEND_FROM=Vases d'Honneur Tanger <noreply@vasesdhonneurtanger.org>
+CONTACT_EMAIL=hello@vasesdhonneurtanger.org
+```
+
+**Note** : En développement, les messages sont loggés dans la console si `RESEND_API_KEY` n'est pas configuré.
 
 ## 📝 Notes importantes
 
@@ -93,6 +138,7 @@ yarn start
 4. **Réseaux sociaux** : Ajouter les liens réels dans `Footer.tsx` et `layout.tsx`
 5. **Images** : Remplacer les placeholders par de vraies images optimisées (WebP/AVIF)
 6. **Intégrations** :
+   - ✅ **Envoi d'emails** : Configurer Resend ou SMTP (voir ci-dessous)
    - Stripe/PayPal pour les dons
    - Google Maps pour la carte
    - YouTube/Vimeo pour les vidéos

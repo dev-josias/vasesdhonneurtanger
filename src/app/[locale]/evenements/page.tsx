@@ -25,7 +25,7 @@ export default function Evenements() {
       time: "21:00 - 22:00",
       description: "Temps de prière et de communion avec le GEM Tanger",
       type: "Prière",
-      color: "from-[#184236] to-[#255948]",
+      color: "from-primary to-[#255948]",
     },
     {
       title: "Académie d'Honneur",
@@ -42,7 +42,7 @@ export default function Evenements() {
       <Header />
       <main className="pt-16">
         {/* Hero */}
-        <section className="bg-linear-to-br from-[#184236] to-[#255948] text-white py-20">
+        <section className="bg-linear-to-br from-primary to-[#255948] text-white py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-5xl md:text-6xl font-bold mb-4">Événements</h1>
             <p className="text-xl text-gray-300 max-w-3xl">
@@ -113,7 +113,7 @@ export default function Evenements() {
         {/* Événements spéciaux */}
         <section className="py-20 bg-[#faf9f6]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-[#184236] mb-12 text-center">
+            <h2 className="text-4xl font-bold text-primary mb-12 text-center">
               Événements spéciaux
             </h2>
             <div className="bg-white rounded-2xl p-8 shadow-lg max-w-3xl mx-auto">
@@ -122,7 +122,7 @@ export default function Evenements() {
                   É
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-[#184236]">
+                  <h3 className="text-2xl font-bold text-primary">
                     Événement à venir
                   </h3>
                   <p className="text-gray-600">Date et heure à confirmer</p>
@@ -140,7 +140,7 @@ export default function Evenements() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-linear-to-br from-[#184236] to-[#255948] text-white">
+        <section className="py-20 bg-linear-to-br from-primary to-[#255948] text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-4xl font-bold mb-6">
               Une question sur nos événements ?

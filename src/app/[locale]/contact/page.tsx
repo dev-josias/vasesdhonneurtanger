@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -13,12 +13,74 @@ export default function Contact() {
     message: "",
     action: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Récupérer l'action depuis l'URL au chargement
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const urlParams = new URLSearchParams(window.location.search);
+      const action = urlParams.get("action");
+      const guide = urlParams.get("guide");
+      if (action || guide) {
+        setFormData((prev) => ({
+          ...prev,
+          action: action || guide || "",
+          message:
+            guide === "nouveau-venu"
+              ? "Je souhaite recevoir le guide du nouveau venu."
+              : prev.message,
+        }));
+      }
+    }
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Ici vous ajouteriez la logique d'envoi du formulaire
-    console.log("Formulaire soumis:", formData);
-    alert("Merci pour votre message ! Nous vous répondrons bientôt.");
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: "success",
+          message: "Merci pour votre message ! Nous vous répondrons bientôt.",
+        });
+        // Réinitialiser le formulaire
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+          action: "",
+        });
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message: data.error || "Une erreur est survenue. Veuillez réessayer.",
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: "Une erreur est survenue. Veuillez réessayer plus tard.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -26,7 +88,7 @@ export default function Contact() {
       <Header />
       <main className="pt-16">
         {/* Hero */}
-        <section className="bg-linear-to-br from-[#184236] to-[#255948] text-white py-20">
+        <section className="bg-linear-to-br from-primary to-[#255948] text-white py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-4">Contact</h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -42,7 +104,7 @@ export default function Contact() {
             <div className="grid md:grid-cols-2 gap-12">
               {/* Formulaire */}
               <div>
-                <h2 className="text-3xl font-bold text-[#184236] mb-6">
+                <h2 className="text-3xl font-bold text-primary mb-6">
                   Envoyez-nous un message
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -125,18 +187,31 @@ export default function Contact() {
                     />
                   </div>
 
+                  {submitStatus.type && (
+                    <div
+                      className={`p-4 rounded-lg ${
+                        submitStatus.type === "success"
+                          ? "bg-green-50 text-green-800 border border-green-200"
+                          : "bg-red-50 text-red-800 border border-red-200"
+                      }`}
+                    >
+                      {submitStatus.message}
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full px-8 py-4 bg-linear-to-r from-[#DBC05E] to-[#C9A648] text-white rounded-full font-semibold text-lg hover:shadow-lg transition-all"
+                    disabled={isSubmitting}
+                    className="w-full px-8 py-4 bg-linear-to-r from-[#DBC05E] to-[#C9A648] text-white rounded-full font-semibold text-lg hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Envoyer le message
+                    {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
                   </button>
                 </form>
               </div>
 
               {/* Informations de contact */}
               <div>
-                <h2 className="text-3xl font-bold text-[#184236] mb-6">
+                <h2 className="text-3xl font-bold text-primary mb-6">
                   Nos coordonnées
                 </h2>
                 <div className="space-y-6">
@@ -187,9 +262,7 @@ export default function Contact() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-[#184236] mb-1">
-                        Email
-                      </h3>
+                      <h3 className="font-semibold text-primary mb-1">Email</h3>
                       <a
                         href="mailto:hello@vasesdhonneurtanger.org"
                         className="text-gray-700 hover:text-[#DBC05E] transition-colors"

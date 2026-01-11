@@ -1,9 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 export default function NewVisitorPopup() {
+  const t = useTranslations("popup");
+  const tCommon = useTranslations("common");
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -30,7 +33,7 @@ export default function NewVisitorPopup() {
         <button
           onClick={handleClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
-          aria-label="Fermer"
+          aria-label={tCommon("close")}
         >
           <svg
             className="w-6 h-6"
@@ -64,13 +67,10 @@ export default function NewVisitorPopup() {
             </svg>
           </div>
 
-          <h3 className="text-2xl font-bold text-[#184236] mb-2">
-            Première visite ?
+          <h3 className="text-2xl font-bold text-primary mb-2">
+            {t("firstVisit")}
           </h3>
-          <p className="text-gray-600 mb-6">
-            Recevez notre guide du nouveau venu avec toutes les informations
-            pour bien commencer votre parcours avec nous.
-          </p>
+          <p className="text-gray-600 mb-6">{t("firstVisitDesc")}</p>
 
           <div className="space-y-3">
             <Link
@@ -78,13 +78,13 @@ export default function NewVisitorPopup() {
               className="block w-full px-6 py-3 bg-linear-to-r from-[#DBC05E] to-[#C9A648] text-white rounded-full font-semibold hover:shadow-lg transition-all"
               onClick={handleClose}
             >
-              Recevoir le guide
+              {t("receiveGuide")}
             </Link>
             <button
               onClick={handleClose}
               className="block w-full px-6 py-3 text-gray-600 hover:text-gray-800 transition-colors"
             >
-              Plus tard
+              {tCommon("later")}
             </button>
           </div>
         </div>
