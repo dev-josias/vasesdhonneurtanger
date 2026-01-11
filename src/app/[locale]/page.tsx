@@ -56,7 +56,7 @@ export default function Home() {
               <p className="text-xl text-gray-600">{t("upcomingEventsDesc")}</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {/* Événement 1 */}
               <div className="bg-linear-to-br from-primary to-navy-dark text-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="flex items-center gap-3 mb-4">
@@ -123,6 +123,57 @@ export default function Home() {
                 <p className="text-sm text-white/80 mt-2">
                   {t("followedByCommunion")}
                 </p>
+              </div>
+
+              {/* Événement 3 - Académie d'Honneur */}
+              <div className="bg-linear-to-br from-[#ff6b6b] to-[#ff8e8e] text-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center font-bold text-lg">
+                    J
+                  </div>
+                  <div>
+                    <p className="text-sm text-white/80">{t("thursday")}</p>
+                    <p className="font-semibold">{t("honorAcademyThursday")}</p>
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold mb-2">
+                  {t("honorAcademyThursday")}
+                </h3>
+                <p className="text-white/90 mb-4">
+                  {t("honorAcademyDescOnline")}
+                </p>
+                <div className="flex items-center gap-2 text-white font-semibold mb-2">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span>{t("honorAcademyTime")}</span>
+                </div>
+                <div className="flex items-center gap-2 text-white/80">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <span className="text-sm font-semibold">{t("online")}</span>
+                </div>
               </div>
             </div>
 
